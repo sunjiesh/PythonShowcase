@@ -1,0 +1,3 @@
+接口文档：
+快递查询：
+	http://localhost:8000/kuaidi/search?no=XXXXXXXX
