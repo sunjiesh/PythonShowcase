@@ -5,7 +5,7 @@ import random
 import urllib
 from django.http import HttpResponse
 from django.template import loader, Context
-
+from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     """
@@ -19,10 +19,15 @@ def index(request):
     })
     return HttpResponse(t.render(c))
 
+@csrf_exempt
 def search(request):
     try:
         expressNo=request.REQUEST['no']
-        return HttpResponse(searchExpress(expressNo))
+        expressCompany=request.REQUEST['company']
+        if(expressNo!='' and expressCompany!=''):
+            return HttpResponse(searchExpress(expressNo,expressCompany))
+        else:
+            return HttpResponse(u"请提交内容")
     except Exception, e:
                 print e
     return index(request)
