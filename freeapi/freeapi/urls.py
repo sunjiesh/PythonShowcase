@@ -4,6 +4,9 @@ from django.conf.urls import patterns, include, url
 # from django.contrib import admin
 # admin.autodiscover()
 
+import views
+
 urlpatterns = patterns('',
     url(r'^kuaidi', include('freeapi.kuaidi.urls')),
+    url(r'^$', views.index, name='index'),
 )
