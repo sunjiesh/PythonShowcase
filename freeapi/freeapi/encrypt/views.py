@@ -17,6 +17,7 @@ def md5(request):
 @csrf_exempt
 def genmd5(request):
     requestStr=request.REQUEST['str']
+    print requestStr
     if requestStr!='':
         return HttpResponse(encrypt.genmd5(requestStr))
     else:

@@ -3,13 +3,16 @@
 import hashlib
 
 
-def genmd5(str):
+def genmd5(paramStr):
     """
         GEN MD5 HEX
     """
-    if str!='':
+    if paramStr!='':
+        print "orign str is "+paramStr
         m = hashlib.md5()
-        m = m.update(str)
-        return m.hexdigest()
+        m.update(paramStr)
+        result=m.hexdigest()
+        return result;
     else:
+        print "no param";
         return ""
