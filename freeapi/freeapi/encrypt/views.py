@@ -6,6 +6,14 @@ from django.views.decorators.csrf import csrf_exempt
 
 import encrypt
 
+def index(request):
+    t = loader.get_template('encrypt/index.html')
+    c = Context({
+        'app': 'My app',
+        'message': 'I am the second view.'
+    })
+    return HttpResponse(t.render(c))
+
 def md5(request):
     t = loader.get_template('encrypt/md5.html')
     c = Context({
