@@ -9,5 +9,6 @@ import views
 urlpatterns = patterns('',
     url(r'^kuaidi', include('freeapi.kuaidi.urls')),
     url(r'^encrypt', include('freeapi.encrypt.urls')),
+    url(r'^compare', include('freeapi.compare.urls')),
     url(r'^$', views.index, name='index'),
 )
