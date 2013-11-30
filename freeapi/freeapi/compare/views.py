@@ -32,10 +32,7 @@ def param(request):
     else:
         try:
             
-            equalParams=[]
-            notEqualParams=[]
-            needlessParams=[]
-            lostParams=[]
+            
             
             
             #read params        
@@ -44,22 +41,29 @@ def param(request):
             print 'paramTxt1='+paramTxt1
             print 'paramTxt2='+paramTxt2
             
-            compare.fromParamsCompare(paramTxt1,paramTxt2,equalParams,notEqualParams,needlessParams,lostParams)
-            
-            
-            
+            equalParams,notEqualParams,needlessParams,lostParams,paramArrArr1,paramArrArr2=compare.fromParamsCompare(paramTxt1,paramTxt2)
             
             
             t = loader.get_template('compare/param.html')
             c = Context({
                 'paramTxt1': paramTxt1,
                 'paramTxt2': paramTxt2,
-                'equalParams':str(equalParams),
-                'notEqualParams':str(notEqualParams),
-                'needlessParams':str(needlessParams),
-                'lostParams':str(lostParams)
+                'equalParams':formatResult(equalParams,paramArrArr1),
+                'notEqualParams':formatResult(notEqualParams,paramArrArr1),
+                'needlessParams':formatResult(needlessParams,paramArrArr2),
+                'lostParams':formatResult(lostParams,paramArrArr1)
             })
             return HttpResponse(t.render(c))
         except ValueError as e:
             print e
+        except:
+            print u'服务器报错'
+
+def formatResult(paramKeys,paramArr):
+    paramStr=''
+    for paramKey in paramKeys:
+        for paramValue in paramArr[paramKey]:
+            paramStr=paramStr+paramKey+'='+paramValue+"\n"
         
+    
+    return paramStr

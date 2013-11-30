@@ -46,28 +46,42 @@
   			<input type="radio" name="paramType" id="paramType1" value="1" checked="checked"/>x-www-form-urlencoded形式&nbsp;&nbsp;
   			<button type="submit" class="btn btn-default">对比</button>
   		</div>
+  		
+  		<div class="row">
+			结果如下：
+			<br/>
+			缺少的参数：
+			<br/>
+			<pre>
+				{{lostParams}}
+			</pre>
+			
+			<br/>
+			不相等的参数
+			<br/>
+			<pre>
+				{{notEqualParams}}
+			</pre>
+			
+			<br/>
+			多余的参数
+			<br/>
+			<pre>
+				{{needlessParams}}
+			</pre>
+			
+			<br/>
+			相等的参数
+			<br/>
+			<pre>
+				{{equalParams}}
+			</pre>
+			
+			<br/>
+		</div>
 </form>
 
-<div>
-	结果如下：
-	<br/>
-	缺少的参数：
-	<br/>
-	{{lostParams}}
-	<br/>
-	不相等的参数
-	<br/>
-	{{notEqualParams}}
-	<br/>
-	多余的参数
-	<br/>
-	{{needlessParams}}
-	<br/>
-	相等的参数
-	<br/>
-	{{equalParams}}
-	<br/>
-</div>
+
 
   </body>
 </html>

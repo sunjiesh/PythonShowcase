@@ -5,7 +5,10 @@ Created on Fri Nov 29 22:07:29 2013
 @author: tom
 """
 
-def fromParamsCompare(paramTxt1,paramTxt2,equalParams,notEqualParams,needlessParams,lostParams):
+def fromParamsCompare(paramTxt1,paramTxt2):
+    """
+        form普通表单形式的参数对比
+    """
     #params to arr
     paramArr1=paramTxt1.split("&")
     paramArr2=paramTxt2.split("&")
@@ -15,6 +18,11 @@ def fromParamsCompare(paramTxt1,paramTxt2,equalParams,notEqualParams,needlessPar
     #存放到字典中，Value为List
     paramArrArr1={}
     paramArrArr2={}
+    
+    equalParams=[]
+    notEqualParams=[]
+    needlessParams=[]
+    lostParams=[]
 
     for tempParam in paramArr1:
         if "=" in tempParam:
@@ -90,3 +98,5 @@ def fromParamsCompare(paramTxt1,paramTxt2,equalParams,notEqualParams,needlessPar
     print needlessParams
     print '缺少的参数是'
     print lostParams
+    
+    return equalParams,notEqualParams,needlessParams,lostParams,paramArrArr1,paramArrArr2
