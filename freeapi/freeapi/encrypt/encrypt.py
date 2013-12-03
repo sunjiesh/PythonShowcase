@@ -16,3 +16,10 @@ def genmd5(paramStr):
     else:
         print "no param";
         return ""
+
+def crashmd5(encryptStr):
+    """
+        encrypt str to plaintext
+    """
+    return "11111"
+    

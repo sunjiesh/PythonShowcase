@@ -30,3 +30,11 @@ def genmd5(request):
         return HttpResponse(encrypt.genmd5(requestStr))
     else:
         return HttpResponse("Please Input String")
+
+@csrf_exempt      
+def crashmd5(request,encryptStr):
+    print encryptStr
+    if encryptStr!='':
+        return HttpResponse(encrypt.crashmd5(encryptStr))
+    else:
+        return HttpResponse("Please Input String")
