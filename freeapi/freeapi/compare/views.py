@@ -51,7 +51,8 @@ def param(request):
                     'equalParams':formatResult(equalParams,paramArrArr1),
                     'notEqualParams':formatResult(notEqualParams,paramArrArr1),
                     'needlessParams':formatResult(needlessParams,paramArrArr2),
-                    'lostParams':formatResult(lostParams,paramArrArr1)
+                    'lostParams':formatResult(lostParams,paramArrArr1),
+                    'paramType':'1'
                 })
             else:
                 print u'参数类型是Multipart表单形式'
@@ -65,7 +66,8 @@ def param(request):
                     'equalParams':formatResult(equalParams,paramArrArr1,paramType),
                     'notEqualParams':formatResult(notEqualParams,paramArrArr1,paramType),
                     'needlessParams':formatResult(needlessParams,paramArrArr2,paramType),
-                    'lostParams':formatResult(lostParams,paramArrArr1,paramType)
+                    'lostParams':formatResult(lostParams,paramArrArr1,paramType),
+                    'paramType':'2'
                 })
         except ValueError as e:
             print e
