@@ -1,7 +1,9 @@
 #coding=utf-8
 
 import hashlib
+import urllib2
 
+import re
 
 def genmd5(paramStr):
     """
@@ -21,5 +23,16 @@ def crashmd5(encryptStr):
     """
         encrypt str to plaintext
     """
-    return "11111"
+    print encryptStr
+    response = urllib2.urlopen('http://www.md5-hash.com/md5-hashing-decrypt/'+encryptStr)
+    html=response.read()
+    result=""    
+    compileResult = re.findall(r'<strong class="result">(.*)</strong>', html)
+    if len(compileResult)>0:
+        for resultItem in compileResult:
+            result=result+resultItem+"\n"
+    else:
+        result=u"没有找到符合条件的字符串"
+    print result
+    return result
     

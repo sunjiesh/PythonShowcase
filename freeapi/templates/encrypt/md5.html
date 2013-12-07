@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
- <title>Md5生成</title>
+ <title>Md5加密解密</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <!-- Bootstrap -->
  <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +32,23 @@
 			// pass options to ajaxForm
 			$('#form1').ajaxForm(options).submit();
 		}
+		function crashmd5(){
+			var encryptStr=$("#str").val()
+			if(encryptStr==''){
+				alert("请输入内容");
+				return false;
+			}
+			// prepare Options Object
+			var options = {
+    			url:        '/encrypt/crashmd5/'+encryptStr,
+    			success:    function(data) {
+        			//alert('Thanks for your comment!');
+        			$("#result").html(data)
+	    		}
+    		};
+			// pass options to ajaxForm
+			$('#form1').ajaxForm(options).submit();
+		}
 	-->
 </script>
   </head>
@@ -43,7 +60,8 @@
   		<div class="form-group">
  			<input id="str" name="str" type="text" class="form-control" placeholder="Please Input String"/>
   		</div>
-  		<button type="button" class="btn btn-default" onclick="genMd5()">Generate</button>
+  		<button type="button" class="btn btn-default" onclick="genMd5()">加密</button>
+  		<button type="button" class="btn btn-default" onclick="crashmd5()">解密</button>
   		<div id="result" class="container">
   		</div>
 </form>
