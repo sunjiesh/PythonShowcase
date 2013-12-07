@@ -10,3 +10,6 @@ Free API Service
 
 对应的Baidu App Engine的Demo地址
 http://pythonfreeapi.duapp.com/
+
+对应的Sina App Engine的Demo地址
+http://freeapiforpython.sinaapp.com/
