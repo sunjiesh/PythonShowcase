@@ -79,7 +79,7 @@ def param(request):
             c = Context({
                 'error': u'服务器报错'
             })
-        return HttpResponse(t.render(c))
+    return HttpResponse(t.render(c))
 
 def formatResult(paramKeys,paramArr,paramType='1'):
     if paramType=='1':
