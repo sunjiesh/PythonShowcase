@@ -22,14 +22,13 @@ def param(request):
     """
         参数对比页面
     """
-    if request.method == 'GET':
-        t = loader.get_template('compare/param.html')
-        c = Context({
-            'app': 'My app',
-            'message': 'I am the second view.'
-        })
-        return HttpResponse(t.render(c))
-    else:
+    #初始化返回对象    
+    c = Context({
+        'app': 'My app',
+        'message': 'I am the second view.'
+    })
+    t = loader.get_template('compare/param.html')
+    if request.method == 'POST':
         try:
             
             #read params        
@@ -54,7 +53,6 @@ def param(request):
                     'needlessParams':formatResult(needlessParams,paramArrArr2),
                     'lostParams':formatResult(lostParams,paramArrArr1)
                 })
-                return HttpResponse(t.render(c))
             else:
                 print u'参数类型是Multipart表单形式'
                 equalParams,notEqualParams,needlessParams,lostParams,paramArrArr1,paramArrArr2=compare.multipartParamsCompare(paramTxt1,paramTxt2)
@@ -69,12 +67,17 @@ def param(request):
                     'needlessParams':formatResult(needlessParams,paramArrArr2,paramType),
                     'lostParams':formatResult(lostParams,paramArrArr1,paramType)
                 })
-                return HttpResponse(t.render(c))                
-                
         except ValueError as e:
             print e
+            c = Context({
+                'error': u'服务器报错'
+            })  
         except:
             print u'服务器报错'
+            c = Context({
+                'error': u'服务器报错'
+            })
+        return HttpResponse(t.render(c))
 
 def formatResult(paramKeys,paramArr,paramType='1'):
     if paramType=='1':

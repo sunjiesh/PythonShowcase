@@ -24,8 +24,11 @@
   </head>
   <body>
  <h1>参数对比</h1>
-
-
+{% if error %}
+   <h2>服务器报错</h2>
+{% else %}
+   
+{% endif %}
 <form id="form1" name="form1" class="navbar-form navbar-left" role="search" method="POST" action="/compare/param">
 		<div class="row">
   			<div class="col-lg-6">
