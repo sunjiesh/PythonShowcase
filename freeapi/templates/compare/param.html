@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
  <title>参数请求对比</title>
@@ -19,11 +19,17 @@
  <!-- Include all compiled plugins (below), or include individual files as needed -->
  <script src="/static/bootstrap/js/bootstrap.min.js"></script>
  <script type="text/javascript" >
-	
+<!--
+	$(document).ready(function(){
+		initNav("navHttpParamCompare");
+    });
+-->
 </script>
   </head>
   <body>
+
  <h1>参数对比</h1>
+ {% include 'compare/nav.html' %}
 {% if error %}
    <h2>服务器报错</h2>
 {% else %}
