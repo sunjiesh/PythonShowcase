@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
- <title>首页</title>
+ <title>参数比较</title>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <!-- Bootstrap -->
- <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,14 +15,22 @@
  
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
  <script src="https://code.jquery.com/jquery.js"></script>
- <script src="static/jquery/jquery.form.js"></script>
+ <script src="/static/jquery/jquery.form.js"></script>
  <!-- Include all compiled plugins (below), or include individual files as needed -->
- <script src="static/bootstrap/js/bootstrap.min.js"></script>
-
+ <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/common.js"></script>
+<script type="text/javascript" >
+<!--
+	 $(document).ready(function(){
+		initNav("navCompare");
+	 });
+	
+-->
+</script>
   </head>
   <body>
- <h1>Free API</h1>
-
+ <h1>参数比较</h1>
+{% include 'nav.html' %}
 Http请求参数对比：/compare/param
 
   </body>
