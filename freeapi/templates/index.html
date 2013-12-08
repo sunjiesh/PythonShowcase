@@ -18,10 +18,22 @@
  <script src="static/jquery/jquery.form.js"></script>
  <!-- Include all compiled plugins (below), or include individual files as needed -->
  <script src="static/bootstrap/js/bootstrap.min.js"></script>
-
+<script src="static/common.js"></script>
+<script type="text/javascript">
+ <!--
+    $(document).ready(function(){
+	initNav("navIndex");
+    });
+-->
+</script>
   </head>
-  <body>
+<body>
  <h1>Free API</h1>
+
+{% include 'nav.html' %}
+
+支持的功能如下：
+
 快递查询（目前仅支持圆通）：<a href="/kuaidi">/kuaidi</a>
 <br/>
 MD5加密/解密：<a href="/encrypt/md5">/encrypt/md5</a>
