@@ -18,8 +18,13 @@
  <script src="/static/jquery/jquery.form.js"></script>
  <!-- Include all compiled plugins (below), or include individual files as needed -->
  <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+ <script src="/static/common.js"></script>
+
  <script type="text/javascript" >
 	<!--
+		$(document).ready(function(){
+			initNav("navEncryptMd5");
+		});
 		function genMd5(){
 			// prepare Options Object
 			var options = {
@@ -54,7 +59,7 @@
   </head>
   <body>
  <h1>MD5 Generate</h1>
-
+ {% include 'encrypt/nav.html' %}
 
 <form id="form1" name="form1" class="navbar-form navbar-left" role="search" method="POST">
   		<div class="form-group">
