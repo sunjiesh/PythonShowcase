@@ -24,6 +24,8 @@
 		 $(document).ready(function(){
 			initNav("navExpress");
    		 });
+		 
+		 //查询快递
 		function searchExpress(){
 			// prepare Options Object
 			var options = {
@@ -35,6 +37,12 @@
     		};
 			// pass options to ajaxForm
 			$('#form1').ajaxForm(options).submit();
+		}
+		
+		//修改快递公司
+		function changeExpressCompany(companyName){
+			$("#company").val(companyName);
+			//alert($("#company").val());
 		}
 	-->
 </script>
@@ -49,12 +57,14 @@
  			<input id="no" name="no" type="text" class="form-control" placeholder="请输入单号"/>
   		</div>
   		<div class="btn-group">
-	    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-	      圆通快递
-	      <span class="caret"></span>
-	    </button>
-	    
-	  </div>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				圆通快递 <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a onclick="changeExpressCompany('yto')">圆通快递</a></li>
+				<li><a onclick="changeExpressCompany('zto')">中通快递</a></li>
+			</ul>
+		</div>
   		<button type="button" class="btn btn-default" onclick="searchExpress()">查询</button>
   		<div id="result" class="container">
   		</div>

@@ -35,11 +35,25 @@ def search(request):
 def searchExpress(expressNo,company='yto'):
     if company=='yto':
         return searchYto(expressNo)
+    elif company=='zto':
+        return searchZto(expressNo)
     else:
         return u"暂不支持此公司查询"
 
 def searchYto(expressNo):
+    """
+        圆通快递查询
+    """
     rnd = random.randint(0,1)
     params = urllib.urlencode({'wen': expressNo,'action':'ajax','rnd':rnd})
     f = urllib.urlopen("http://www.kiees.cn/yto.php?%s" % params)
+    return f.read().decode('utf8')
+    
+def searchZto(expressNo):
+    """
+        中通快递查询
+    """
+    rnd = random.randint(0,1)
+    params = urllib.urlencode({'wen': expressNo,'action':'ajax','rnd':rnd})
+    f = urllib.urlopen("http://www.kiees.cn/zto.php?%s" % params)
     return f.read().decode('utf8')
