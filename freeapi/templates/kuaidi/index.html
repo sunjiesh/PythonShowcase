@@ -40,9 +40,10 @@
 		}
 		
 		//修改快递公司
-		function changeExpressCompany(companyName){
-			$("#company").val(companyName);
+		function changeExpressCompany(companyCode,companyName){
+			$("#company").val(companyCode);
 			//alert($("#company").val());
+			$("#displayCompanyName").text(companyName)
 		}
 	-->
 </script>
@@ -58,11 +59,11 @@
   		</div>
   		<div class="btn-group">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-				圆通快递 <span class="caret"></span>
+				<span id="displayCompanyName">圆通快递</span> <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" role="menu">
-				<li><a onclick="changeExpressCompany('yto')">圆通快递</a></li>
-				<li><a onclick="changeExpressCompany('zto')">中通快递</a></li>
+				<li><a onclick="changeExpressCompany('yto','圆通快递')">圆通快递</a></li>
+				<li><a onclick="changeExpressCompany('zto','中通快递')">中通快递</a></li>
 			</ul>
 		</div>
   		<button type="button" class="btn btn-default" onclick="searchExpress()">查询</button>
