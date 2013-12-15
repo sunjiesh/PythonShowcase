@@ -14,7 +14,7 @@ Free API Service
 <br/>
 4、接口服务
 <br/>
-`1）获取Bing首页图片地址：http://server:port/api/wallpaper/bing
+`1）获取Bing首页图片地址：http://server:port/api/wallpaper/bing?download=true（false获取地址）
 <br/>
 
 对应的Baidu App Engine的Demo地址
