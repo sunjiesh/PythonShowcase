@@ -6,12 +6,17 @@ Free API Service
 <br/>
 目前支持功能如下：
 <br/>
-1、快递查询（圆通快递、中通快递）http://localhost:8000/kuaidi
+1、快递查询（圆通快递、中通快递）http://server:port/kuaidi
 <br/>
-2、MD5加密/解密：http://localhost:8000/encrypt/md5
+2、MD5加密/解密：http://server:port/encrypt/md5
 <br/>
 3、HTTP参数对比
 <br/>
+4、接口服务
+<br/>
+`1）获取Bing首页图片地址：http://server:port/api/wallpaper/bing
+<br/>
+
 对应的Baidu App Engine的Demo地址
 http://pythonfreeapi.duapp.com/
 <br/>
