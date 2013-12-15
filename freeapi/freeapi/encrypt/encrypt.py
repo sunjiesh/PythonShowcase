@@ -1,7 +1,9 @@
 #coding=utf-8
 
 import hashlib
+import base64
 import urllib2
+
 
 import re
 
@@ -21,7 +23,7 @@ def genmd5(paramStr):
 
 def crashmd5(encryptStr):
     """
-        encrypt str to plaintext
+        decoder str to plaintext
     """
     print encryptStr
     response = urllib2.urlopen('http://www.md5-hash.com/md5-hashing-decrypt/'+encryptStr)
@@ -36,3 +38,19 @@ def crashmd5(encryptStr):
     print result
     return result
     
+def encodeBase64(plainText):
+    """
+        encrypt base64 str
+    """
+    if plainText!='':
+        encoded = base64.b64encode(plainText)
+        return encoded
+    else:
+        return ""
+        
+def decodeBase64(encryptStr):
+    if encryptStr!='':
+        data = base64.b64decode(encryptStr)
+        return data
+    else:
+        return ""

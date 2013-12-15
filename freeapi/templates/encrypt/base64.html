@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ <title>Base64加密解密</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- Bootstrap -->
+ <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+ <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+ <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+ <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+ <![endif]-->
+ 
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="https://code.jquery.com/jquery.js"></script>
+ <script src="/static/jquery/jquery.form.js"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+ <script src="/static/common.js"></script>
+
+ <script type="text/javascript" >
+	<!--
+		$(document).ready(function(){
+			initNav("navEncryptBase64");
+		});
+		function encodeBase(){
+			$("#encryptType").val('encode');
+			var encryptStr=$("#str").val()
+			if(encryptStr==''){
+				alert("请输入内容");
+				return false;
+			}
+			// prepare Options Object
+			var options = {
+    			url:        '/encrypt/base64',
+    			success:    function(data) {
+        			//alert('Thanks for your comment!');
+        			$("#result").html(data)
+	    		}
+    		};
+			// pass options to ajaxForm
+			$('#form1').ajaxForm(options).submit();
+		}
+		function decodeBase(){
+			$("#encryptType").val('decode');
+			var encryptStr=$("#str").val()
+			if(encryptStr==''){
+				alert("请输入内容");
+				return false;
+			}
+			// prepare Options Object
+			var options = {
+    			url:        '/encrypt/base64',
+    			success:    function(data) {
+        			//alert('Thanks for your comment!');
+        			$("#result").html(data)
+	    		}
+    		};
+			// pass options to ajaxForm
+			$('#form1').ajaxForm(options).submit();
+		}
+	-->
+</script>
+  </head>
+  <body>
+ <h1>Base64加密解密</h1>
+ {% include 'encrypt/nav.html' %}
+
+<form id="form1" name="form1" class="navbar-form navbar-left" role="search" method="POST">
+  		<div class="form-group">
+			<button type="button" class="btn btn-default" onclick="encodeBase()">加密</button>
+			<button type="button" class="btn btn-default" onclick="decodeBase()">解密</button>
+ 			<textarea id="str" name="str" type="text" class="form-control" placeholder="Please Input String" rows="15" cols="60"></textarea>
+			<input id="encryptType" name="encryptType" type="hidden" value="encode"/>
+  		</div>
+  		
+		<br/>
+		结果：
+		<br/>
+  		<pre id="result" class="container">
+  		</pre>
+</form>
+  </body>
+</html>

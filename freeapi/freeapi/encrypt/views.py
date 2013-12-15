@@ -38,3 +38,34 @@ def crashmd5(request,encryptStr):
         return HttpResponse(encrypt.crashmd5(encryptStr))
     else:
         return HttpResponse("Please Input String")
+
+@csrf_exempt
+def base64(request):
+    if request.method == 'GET':
+        t = loader.get_template('encrypt/base64.html')
+        c = Context({
+            'app': 'My app',
+            'message': 'I am the second view.'
+        })
+        return HttpResponse(t.render(c))
+    else:
+
+        #请求参数        
+        requestStr=request.REQUEST['str']
+        encryptType=request.REQUEST['encryptType']
+        print requestStr
+        print encryptType
+        #初始化返回        
+        result=''        
+        if requestStr != '':
+            if encryptType=='encode':
+                plainText=requestStr.encode('utf-8')
+                print plainText
+                result=encrypt.encodeBase64(str(plainText))
+            elif encryptType=='decode':
+                result=encrypt.decodeBase64(requestStr)
+            else:
+                pass
+        else:
+            result=u'没有提交参数'
+        return HttpResponse(result)
