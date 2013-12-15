@@ -2,3 +2,6 @@
 
 1、获取Bing首页图片：
 	http://server:port/api/wallpaper/bing
+
+2、下载网络图片：
+	http://server:port/api/downloadPic?path=http://cn.bing.com/az/hprichbg/rb/WinterFoliage_ZH-CN11425960734_1366x768.jpg
