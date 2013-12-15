@@ -1,3 +1,4 @@
 接口文档：
-快递查询：
-	http://localhost:8000/kuaidi
+
+1、获取Bing首页图片：
+	http://localhost:8000//api/wallpaper/bing
