@@ -37,6 +37,8 @@ def searchExpress(expressNo,company='yto'):
         return searchYto(expressNo)
     elif company=='zto':
         return searchZto(expressNo)
+    elif company=='yunda':
+        return searchYd(expressNo)
     else:
         return u"暂不支持此公司查询"
 
@@ -56,4 +58,13 @@ def searchZto(expressNo):
     rnd = random.randint(0,1)
     params = urllib.urlencode({'wen': expressNo,'action':'ajax','rnd':rnd})
     f = urllib.urlopen("http://www.kiees.cn/zto.php?%s" % params)
+    return f.read().decode('utf8')
+
+def searchYd(expressNo):
+    """
+        韵达快递查询
+    """
+    rnd = random.randint(0,1)
+    params = urllib.urlencode({'wen': expressNo,'rnd':rnd,'channel':''})
+    f = urllib.urlopen("http://www.kiees.cn/yd.php?%s" % params)
     return f.read().decode('utf8')
