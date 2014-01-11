@@ -3,6 +3,7 @@
 from django.http import HttpResponse
 
 import wallpaper
+import service
 import httputil
 
 def getWallpaper(request,keywords):
@@ -32,5 +33,10 @@ def downloadPic(request):
     if path!='':
         imageBytes=httputil.downloadFile(path)
     return HttpResponse(imageBytes, mimetype="image/jpeg")
-        
+
+
+def getIp(request):
+    ipAddress=service.getIp()
+    print ipAddress
+    return HttpResponse(ipAddress)
 
