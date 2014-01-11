@@ -35,8 +35,3 @@ def downloadPic(request):
     return HttpResponse(imageBytes, mimetype="image/jpeg")
 
 
-def getIp(request):
-    ipAddress=service.getIp()
-    print ipAddress
-    return HttpResponse(ipAddress)
-
