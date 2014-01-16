@@ -14,7 +14,7 @@
  <![endif]-->
  
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
- <script src="https://code.jquery.com/jquery.js"></script>
+ <script src="static/jquery/jquery-1.10.2.min.js"></script>
  <script src="static/jquery/jquery.form.js"></script>
  <!-- Include all compiled plugins (below), or include individual files as needed -->
  <script src="static/bootstrap/js/bootstrap.min.js"></script>
@@ -22,8 +22,26 @@
 <script type="text/javascript">
  <!--
     $(document).ready(function(){
-	initNav("navIndex");
+		initNav("navIndex");
     });
+	
+	function getip(){
+		try{
+			$.ajax({
+			  url: "http://ifconfig.me/ip",
+			  success: function(data){
+				alert("aaa");
+			  },
+			  failure:function(data){
+				alert("bbb");
+			  },
+			  dateType:"text"
+			});
+		}catch(err){
+			alert(err)
+		}
+		
+	}
 -->
 </script>
   </head>
@@ -32,6 +50,9 @@
 
 {% include 'nav.html' %}
 
+IP地址如下：<font id="ip"></font>
+<br/>
+<input type="button" onclick="getip()" value="获取公网地址"/>
 支持的功能如下：
 
 快递查询（目前仅支持圆通、中通快递和韵达快递）：<a href="/kuaidi">/kuaidi</a>

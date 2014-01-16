@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^encrypt', include('freeapi.encrypt.urls')),
     url(r'^compare', include('freeapi.compare.urls')),
     url(r'^api', include('freeapi.api.urls')),
+    url(r'^other', include('freeapi.other.urls')),
     url(r'^/?$', views.index, name='index'),
 )
 handler500 = 'freeapi.views.custom_500_view'
