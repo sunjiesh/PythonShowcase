@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 import wallpaper
 import httputil
-
+import service
 import uuid
 
 def getWallpaper(request,keywords):
@@ -76,3 +76,11 @@ def genrandom(request):
         print resultstr
         return HttpResponse(resultstr)
     return HttpResponse(tempStr)
+
+
+def getCityFromIp(request):
+    ip=request.GET['ip']
+    print ip
+    city=service.getCityFromIp(ip)
+    print city
+    return HttpResponse(city)
