@@ -84,3 +84,11 @@ def getCityFromIp(request):
     city=service.getCityFromIp(ip)
     print city
     return HttpResponse(city)
+    
+def getWeatherFromIp(request):
+    ip=request.GET['ip']
+    print ip
+    cityName=service.getCityFromIp(ip)
+    print cityName
+    weather=service.getWeatherFromCity(cityName)
+    return HttpResponse(weather) 

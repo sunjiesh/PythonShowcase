@@ -23,19 +23,18 @@
  <!--
     $(document).ready(function(){
 		initNav("navIndex");
+		getCity();
     });
 	
-	function getip(){
+	function getCity(){
 		try{
-			$.ajax({
-			  url: "http://ifconfig.me/ip",
-			  success: function(data){
-				alert("aaa");
-			  },
-			  failure:function(data){
-				alert("bbb");
-			  },
-			  dateType:"text"
+			$.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
+				ipAddr=data.host;
+				$.get("/api/getWeatherFromIp?ip="+ipAddr,function(result){
+					result=result.replace(' ','');
+					//$("#weather").html(result);
+					//alert(result)
+				});
 			});
 		}catch(err){
 			alert(err)
@@ -49,12 +48,9 @@
  <h1>Free API</h1>
 
 {% include 'nav.html' %}
-
-IP地址如下：<font id="ip"></font>
+<div id="weather"><div>
 <br/>
-<input type="button" onclick="getip()" value="获取公网地址"/>
 支持的功能如下：
-
 快递查询（目前仅支持圆通、中通快递和韵达快递）：<a href="/kuaidi">/kuaidi</a>
 <br/>
 MD5加密/解密：<a href="/encrypt/md5">/encrypt/md5</a>

@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'/uuid', views.genuuid, name='uuid'),
     url(r'/genrandom', views.genrandom, name='genrandom'),
     url(r'/getCityFromIp', views.getCityFromIp, name='getCityFromIp'),
+    url(r'/getWeatherFromIp', views.getWeatherFromIp, name='getWeatherFromIp'),
 )
