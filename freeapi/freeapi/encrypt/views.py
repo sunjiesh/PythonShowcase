@@ -91,7 +91,9 @@ def thunder(request):
             if encryptType=='encode':
                 plainText=requestStr.encode('utf-8')
                 print plainText
-                result=encrypt.encryptThunder(str(plainText))
+                plainTextStrArr=plainText.split("\n")
+                for plainTextStr in plainTextStrArr:
+                    result=result+"\n"+encrypt.encryptThunder(str(plainTextStr))
             elif encryptType=='decode':
                 encryptStrArr=requestStr.split("\n")
                 for encryptStr in encryptStrArr:
