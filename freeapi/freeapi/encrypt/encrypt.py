@@ -60,7 +60,12 @@ def encryptThunder(plainText):
         迅雷地址加密
     """
     if plainText!='':
+        plainText="AA"+plainText+"ZZ"
+        print plainText
+        plainText=unicode(plainText,"utf-8")
+        plainText=plainText.encode("gbk")
         encoded = base64.b64encode(plainText)
+        encoded="thunder://"+encoded
         return encoded
     else:
         return ""
@@ -76,6 +81,8 @@ def decryptThunder(encryptStr):
             data=data.encode("utf-8")
             if data.startswith("AA"):
                 data=data[2:]
+            if data.endswith("ZZ"):
+                data=data[:-2]
             return data
     else:
         return ""
