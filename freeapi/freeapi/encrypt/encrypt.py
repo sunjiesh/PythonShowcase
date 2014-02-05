@@ -77,8 +77,11 @@ def decryptThunder(encryptStr):
             print encryptStr
             data = base64.b64decode(encryptStr)
             print data
-            data=unicode(data,"gb2312")
-            data=data.encode("utf-8")
+            try:
+                data=unicode(data,"gb2312")
+                data=data.encode("utf-8")
+            except Exception,e:
+                print e
             if data.startswith("AA"):
                 data=data[2:]
             if data.endswith("ZZ"):
