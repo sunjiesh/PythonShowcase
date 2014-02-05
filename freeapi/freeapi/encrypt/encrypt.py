@@ -54,3 +54,28 @@ def decodeBase64(encryptStr):
         return data
     else:
         return ""
+        
+def encryptThunder(plainText):
+    """
+        迅雷地址加密
+    """
+    if plainText!='':
+        encoded = base64.b64encode(plainText)
+        return encoded
+    else:
+        return ""
+
+def decryptThunder(encryptStr):
+    if encryptStr!='':
+        if encryptStr.startswith('thunder://'):#迅雷协议
+            encryptStr=encryptStr[encryptStr.rindex("/")+1:]
+            print encryptStr
+            data = base64.b64decode(encryptStr)
+            print data
+            data=unicode(data,"gb2312")
+            data=data.encode("utf-8")
+            if data.startswith("AA"):
+                data=data[2:]
+            return data
+    else:
+        return ""
