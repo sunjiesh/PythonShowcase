@@ -17,8 +17,3 @@ Free API Service
 `1）获取Bing首页图片地址：http://server:port/api/wallpaper/bing?download=true（false获取地址）
 <br/>
 
-对应的Baidu App Engine的Demo地址
-http://pythonfreeapi.duapp.com/
-<br/>
-对应的Sina App Engine的Demo地址
-http://freeapiforpython.sinaapp.com/
